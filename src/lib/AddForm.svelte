@@ -1,22 +1,27 @@
 <script>
   import closeSvg from "../assets/close.svg";
-  import { listElements } from "../store";
+  import { isAddFormOpen, listElements } from "../store";
   let name = "";
 
   function handleAddButton() {
     listElements.update((list) => [...list, name]);
+    closeAddForm();
   }
 
   function handleInput(e) {
     name = e.currentTarget.value;
   }
 
+  function closeAddForm() {
+    isAddFormOpen.set(false);
+  }
+
   // document.body.classList.add("overflow-hidden");
 </script>
 
-<div class="bg">
+<div on:click|self={closeAddForm} class="bg">
   <div class="container">
-    <button class="close-button">
+    <button on:click={closeAddForm} class="close-button">
       <img src={closeSvg} alt="close" />
     </button>
     <form on:submit|preventDefault>

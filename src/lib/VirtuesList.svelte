@@ -1,6 +1,10 @@
 <script>
   import ListElement from "./ListElement.svelte";
   import { isAddFormOpen, listElements } from "../store";
+
+  const virtuesJson = window.localStorage.getItem("virtues");
+  const virtues = virtuesJson ? JSON.parse(virtuesJson) : [];
+  listElements.set(virtues.map(({ name }) => name));
 </script>
 
 <section class="list-container">
@@ -30,11 +34,11 @@
   }
 
   .list-container h2 {
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
   }
 
   .list-container ul {
-    margin-bottom: 1em;
+    margin-bottom: 1.1em;
   }
 
   .list-container .message {
