@@ -1,10 +1,25 @@
 <script>
-  import closeSvg from "../assets/close.svg";
-  import { isAddFormOpen, listElements } from "../store";
+  import closeSvg from "../../../assets/close.svg";
+  import { isAddFormOpen, listElements } from "../../../store";
+  import getId from "../../functions/getId";
+  import getNewVirtueObject from "../../functions/getNewVirtueObject";
   let name = "";
 
   function handleAddButton() {
-    listElements.update((list) => [...list, name]);
+    const id = getId();
+    listElements.update((list) => [...list, { id: id, name: name }]);
+
+    const virtuesJson = window.localStorage.getItem("virtues");
+    const newVirtue = getNewVirtueObject(id, name);
+    let newVirtuesJson;
+    if (!virtuesJson) {
+      newVirtuesJson = JSON.stringify([newVirtue]);
+    } else {
+      const virtues = JSON.parse(virtuesJson);
+      newVirtuesJson = JSON.stringify([...virtues, newVirtue]);
+    }
+    window.localStorage.setItem("virtues", newVirtuesJson);
+
     closeAddForm();
   }
 

@@ -1,6 +1,6 @@
 <script>
-  import AddForm from "../lib/AddForm.svelte";
-  import VirtuesList from "../lib/VirtuesList.svelte";
+  import AddForm from "../lib/components/home/AddForm.svelte";
+  import VirtuesList from "../lib/components/home/VirtuesList.svelte";
   import { isAddFormOpen } from "../store";
 </script>
 

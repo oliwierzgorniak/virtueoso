@@ -1,18 +1,23 @@
 <script>
   import ListElement from "./ListElement.svelte";
-  import { isAddFormOpen, listElements } from "../store";
+  import { isAddFormOpen, listElements } from "../../../store";
 
   const virtuesJson = window.localStorage.getItem("virtues");
   const virtues = virtuesJson ? JSON.parse(virtuesJson) : [];
-  listElements.set(virtues.map(({ name }) => name));
+  listElements.set(
+    virtues.map(({ name, id }) => ({
+      id: id,
+      name: name,
+    }))
+  );
 </script>
 
 <section class="list-container">
   <h2>Virtues</h2>
   <ul>
     {#if $listElements.length > 0}
-      {#each $listElements as name}
-        <ListElement {name} />
+      {#each $listElements as el}
+        <ListElement id={el.id} name={el.name} />
       {/each}
     {:else}
       <span class="message">No virtues to show</span>

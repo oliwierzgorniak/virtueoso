@@ -1,9 +1,12 @@
 <script>
-  import VirtuesList from "../lib/VirtuesList.svelte";
   import { activeVirtue } from "../store";
+
+  const virtuesJson = window.localStorage.getItem("virtues");
+  const virtues = JSON.parse(virtuesJson);
+  activeVirtue.set(virtues.find(({ id }) => id == $activeVirtue.id));
 </script>
 
-<h1>{$activeVirtue}</h1>
+<h1>{$activeVirtue.name}</h1>
 
 <style>
   h1 {
