@@ -47,6 +47,7 @@ button {
   white-space: nowrap;
 }
 
-/* .overflow-hidden {
-  overflow: hidden;
-} */
+.container {
+  width: 80vw;
+  max-width: 20rem;
+}

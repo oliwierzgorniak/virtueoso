@@ -12,7 +12,7 @@
   );
 </script>
 
-<section class="list-container">
+<section class="container">
   <h2>Virtues</h2>
   <ul>
     {#if $listElements.length > 0}
@@ -25,19 +25,11 @@
   </ul>
   <button
     class="button add-virtue-button"
-    on:click={() => isAddFormOpen.set(true)}>Add virtue</button
+    on:click={() => isAddFormOpen.set(true)}>Add a virtue</button
   >
 </section>
 
 <style>
-  .list-container {
-    /* display: flex;
-    flex-direction: column; */
-    /* align-items: center; */
-    width: 80vw;
-    max-width: 20rem;
-  }
-
   .list-container h2 {
     margin-bottom: 0.5em;
   }

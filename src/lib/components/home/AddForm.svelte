@@ -1,8 +1,8 @@
 <script>
   import closeSvg from "../../../assets/close.svg";
   import { isAddFormOpen, listElements } from "../../../store";
-  import getId from "../../functions/getId";
-  import getNewVirtueObject from "../../functions/getNewVirtueObject";
+  import getId from "../../functions/home/getId";
+  import getNewVirtueObject from "../../functions/home/getNewVirtueObject";
   let name = "";
 
   function handleAddButton() {
@@ -48,7 +48,7 @@
         value={name}
         type="text"
       />
-      <button on:click={handleAddButton} class="button">Add virtue</button>
+      <button on:click={handleAddButton} class="button">Add the virtue</button>
     </form>
   </div>
 </div>
