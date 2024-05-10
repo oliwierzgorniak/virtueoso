@@ -1,5 +1,6 @@
 <script>
   import Buttons from "../lib/components/detail/Buttons.svelte";
+  import History from "../lib/components/detail/History.svelte";
   import Score from "../lib/components/detail/Score.svelte";
   import { activeVirtue } from "../store";
 
@@ -11,6 +12,7 @@
 <h1>{$activeVirtue.name}</h1>
 <Score />
 <Buttons />
+<History />
 
 <style>
   h1 {
