@@ -2,12 +2,24 @@
   import { activeVirtue } from "../../../store";
   import getFormattedDate from "../../functions/detail/getFormattedDate";
   import getPointsValue from "../../functions/detail/getPointsValue";
+
+  function getRecords(showMore) {
+    if ($activeVirtue.history.length == 0) return [];
+    const reversed = $activeVirtue.history.reverse();
+    return showMore ? reversed : reversed.slice(0, 5);
+  }
+
+  let showMore = false;
+
+  function handleButton() {
+    showMore = true;
+  }
 </script>
 
 <section class="container">
   <h2>History</h2>
   <ol>
-    {#each $activeVirtue.history as record}
+    {#each getRecords(showMore) as record}
       <li>
         <span>{getFormattedDate(record.dateStr)}</span>
         <div>
@@ -19,7 +31,9 @@
       </li>
     {/each}
   </ol>
-  <button>Show more</button>
+  {#if !showMore}
+    <button on:click={handleButton}>Show more</button>
+  {/if}
 </section>
 
 <style>
