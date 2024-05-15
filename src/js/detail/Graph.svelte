@@ -1,11 +1,10 @@
 <script>
-  import { onMount } from "svelte";
+  import { afterUpdate } from "svelte";
   import { activeVirtue } from "../store";
   import drawGraph from "./graph/drawGraph";
 
-  onMount(() => {
+  afterUpdate(() => {
     const canvas = document.querySelector(".graph-canvas");
-
     drawGraph(canvas, $activeVirtue);
   });
 </script>

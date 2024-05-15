@@ -5,9 +5,12 @@
 
   const MAX_RECORDS = 5;
   function getRecords(showMore, _refreshVariable) {
-    if ($activeVirtue.history.length == 0) return [];
-    const reversed = $activeVirtue.history.reverse();
-    return showMore ? reversed : reversed.slice(0, MAX_RECORDS);
+    const historyLength = $activeVirtue.history.length;
+    if (historyLength == 0) return [];
+    const historyNotReversed = showMore
+      ? $activeVirtue.history
+      : $activeVirtue.history.slice(historyLength - MAX_RECORDS);
+    return historyNotReversed.reverse();
   }
 
   let showMore = false;
