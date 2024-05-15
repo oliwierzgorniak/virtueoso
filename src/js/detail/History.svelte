@@ -2,6 +2,7 @@
   import { activeVirtue } from "../store";
   import getFormattedDate from "../detail/history/getFormattedDate";
   import getPointsValue from "../detail/history/getPointsValue";
+  import getWordValue from "../detail/history/getPointsValue";
 
   const MAX_RECORDS = 5;
   function getRecords(showMore) {
@@ -23,9 +24,8 @@
       <li>
         <span>{getFormattedDate(record.dateStr)}</span>
         <div>
-          <span>{record.rating}</span><span
-            ><span class="rating-points">{getPointsValue(record.rating)}</span
-            >vp</span
+          <span>{getWordValue(record.rating)}</span><span
+            ><span class="rating-points">{record.rating}</span>vp</span
           >
         </div>
       </li>
