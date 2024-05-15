@@ -1,9 +1,10 @@
 <script>
+  import AddRecord from "../js/detail/AddRecord.svelte";
   import Buttons from "../js/detail/Buttons.svelte";
   import Graph from "../js/detail/Graph.svelte";
   import History from "../js/detail/History.svelte";
   import Score from "../js/detail/Score.svelte";
-  import { activeVirtue } from "../js/store";
+  import { activeVirtue, isAddRecordOpen } from "../js/store";
 
   const virtuesJson = window.localStorage.getItem("virtues");
   const virtues = JSON.parse(virtuesJson);
@@ -15,6 +16,9 @@
   <Graph />
   <Score />
   <History />
+  {#if $isAddRecordOpen}
+    <AddRecord />
+  {/if}
   <Buttons />
 </div>
 

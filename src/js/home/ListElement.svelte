@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.7em;
+    margin-bottom: 0.8em;
   }
 
   .list-element-button {

@@ -1,9 +1,13 @@
 <script>
   import backSvg from "../../assets/back.svg";
-  import { location } from "../store";
+  import { isAddRecordOpen, location } from "../store";
 
   function handleBackButton() {
     location.set("home");
+  }
+
+  function handleReviewButton() {
+    isAddRecordOpen.set(true);
   }
 </script>
 
@@ -14,7 +18,7 @@
       <span>Go back</span></button
     >
   </nav>
-  <button class="button">Review the day</button>
+  <button on:click={handleReviewButton} class="button">Review the day</button>
 </section>
 
 <style>

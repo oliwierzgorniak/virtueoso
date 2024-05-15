@@ -1,4 +1,4 @@
-export default function getFormattedDate(dateStr) {
+export default function getFormatedDate(dateStr) {
   const date = new Date(dateStr);
 
   const day = date.getDate();

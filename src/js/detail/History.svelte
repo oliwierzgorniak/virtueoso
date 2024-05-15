@@ -1,10 +1,10 @@
 <script>
   import { activeVirtue } from "../store";
-  import getFormattedDate from "../detail/history/getFormattedDate";
+  import getFormatedDate from "./history/getFormatedDate";
   import getWordValue from "../detail/history/getPointsValue";
 
   const MAX_RECORDS = 5;
-  function getRecords(showMore) {
+  function getRecords(showMore, _refreshVariable) {
     if ($activeVirtue.history.length == 0) return [];
     const reversed = $activeVirtue.history.reverse();
     return showMore ? reversed : reversed.slice(0, MAX_RECORDS);
@@ -19,9 +19,9 @@
 <section class="container">
   <h2>History</h2>
   <ol>
-    {#each getRecords(showMore) as record}
+    {#each getRecords(showMore, $activeVirtue) as record}
       <li>
-        <span>{getFormattedDate(record.dateStr)}</span>
+        <span>{getFormatedDate(record.dateStr)}</span>
         <div class="rating-container">
           <span>{getWordValue(record.rating)}</span>
           <div class="points-container">

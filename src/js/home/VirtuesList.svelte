@@ -30,12 +30,12 @@
 </section>
 
 <style>
-  .list-container h2 {
-    margin-bottom: 0.5em;
+  h2 {
+    margin-bottom: 0.7em;
   }
 
-  .list-container ul {
-    margin-bottom: 1.1em;
+  ul {
+    margin-bottom: 1.7em;
   }
 
   .list-container .message {
