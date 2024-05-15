@@ -1,7 +1,7 @@
 <script>
   import Detail from "./locations/Detail.svelte";
   import Home from "./locations/Home.svelte";
-  import { location } from "./store";
+  import { location } from "./js/store";
 </script>
 
 {#if $location == "detail"}

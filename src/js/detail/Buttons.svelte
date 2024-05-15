@@ -1,6 +1,6 @@
 <script>
-  import backSvg from "../../../assets/back.svg";
-  import { location } from "../../../store";
+  import backSvg from "../../assets/back.svg";
+  import { location } from "../store";
 
   function handleBackButton() {
     location.set("home");

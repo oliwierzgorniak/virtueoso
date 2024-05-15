@@ -1,5 +1,5 @@
 <script>
-  import { activeVirtue, location } from "../../../store";
+  import { activeVirtue, location } from "../store";
   export let name, id;
 
   function viewVirtue() {
@@ -17,7 +17,7 @@
 
 <style>
   li {
-    border: 1px solid var(--text-color);
+    border: var(--border-size) solid var(--text-color);
     font-size: 0.938rem;
     padding: 0.8em 0.9em;
     display: flex;

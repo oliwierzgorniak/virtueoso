@@ -1,7 +1,7 @@
 <script>
-  import AddForm from "../lib/components/home/AddForm.svelte";
-  import VirtuesList from "../lib/components/home/VirtuesList.svelte";
-  import { isAddFormOpen } from "../store";
+  import AddForm from "../js/home/AddForm.svelte";
+  import VirtuesList from "../js/home/VirtuesList.svelte";
+  import { isAddFormOpen } from "../js/store";
 </script>
 
 <h1>VIRTUEOSO</h1>

@@ -11,6 +11,8 @@
   --text-color: #020202;
   --button-bg-color: #eeeeee;
   --grey-attention: #e3e3e3;
+
+  --border-size: 1px;
 }
 
 body {
@@ -41,7 +43,7 @@ button {
 .button {
   padding: 0.6em 1.1em;
   background-color: var(--button-bg-color);
-  border: 1px solid var(--text-color);
+  border: var(--border-size) solid var(--text-color);
   font-size: 0.938rem;
   width: min-content;
   white-space: nowrap;

@@ -1,8 +1,8 @@
 <script>
-  import closeSvg from "../../../assets/close.svg";
-  import { isAddFormOpen, listElements } from "../../../store";
-  import getId from "../../functions/home/getId";
-  import getNewVirtueObject from "../../functions/home/getNewVirtueObject";
+  import closeSvg from "../../assets/close.svg";
+  import { isAddFormOpen, listElements } from "../store";
+  import getId from "../home/addForm/getId";
+  import getNewVirtueObject from "../home/addForm/getNewVirtueObject";
   let name = "";
 
   function handleAddButton() {
@@ -67,7 +67,7 @@
   .container {
     background-color: var(--bg-color);
     padding: 2.3em 2em 1.8em 2em;
-    border: 1px solid var(--text-color);
+    border: var(--border-size) solid var(--text-color);
     display: flex;
     flex-direction: column;
     position: relative;

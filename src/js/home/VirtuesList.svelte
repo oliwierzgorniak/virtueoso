@@ -1,6 +1,6 @@
 <script>
   import ListElement from "./ListElement.svelte";
-  import { isAddFormOpen, listElements } from "../../../store";
+  import { isAddFormOpen, listElements } from "../store";
 
   const virtuesJson = window.localStorage.getItem("virtues");
   const virtues = virtuesJson ? JSON.parse(virtuesJson) : [];

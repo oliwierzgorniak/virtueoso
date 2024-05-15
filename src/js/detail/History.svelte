@@ -1,16 +1,16 @@
 <script>
-  import { activeVirtue } from "../../../store";
-  import getFormattedDate from "../../functions/detail/getFormattedDate";
-  import getPointsValue from "../../functions/detail/getPointsValue";
+  import { activeVirtue } from "../store";
+  import getFormattedDate from "../detail/history/getFormattedDate";
+  import getPointsValue from "../detail/history/getPointsValue";
 
+  const MAX_RECORDS = 5;
   function getRecords(showMore) {
     if ($activeVirtue.history.length == 0) return [];
     const reversed = $activeVirtue.history.reverse();
-    return showMore ? reversed : reversed.slice(0, 5);
+    return showMore ? reversed : reversed.slice(0, MAX_RECORDS);
   }
 
   let showMore = false;
-
   function handleButton() {
     showMore = true;
   }
@@ -31,7 +31,7 @@
       </li>
     {/each}
   </ol>
-  {#if !showMore}
+  {#if !showMore && $activeVirtue.history.length > MAX_RECORDS}
     <button on:click={handleButton}>Show more</button>
   {/if}
 </section>

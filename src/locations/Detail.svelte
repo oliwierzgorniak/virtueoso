@@ -1,8 +1,9 @@
 <script>
-  import Buttons from "../lib/components/detail/Buttons.svelte";
-  import History from "../lib/components/detail/History.svelte";
-  import Score from "../lib/components/detail/Score.svelte";
-  import { activeVirtue } from "../store";
+  import Buttons from "../js/detail/Buttons.svelte";
+  import Graph from "../js/detail/Graph.svelte";
+  import History from "../js/detail/History.svelte";
+  import Score from "../js/detail/Score.svelte";
+  import { activeVirtue } from "../js/store";
 
   const virtuesJson = window.localStorage.getItem("virtues");
   const virtues = JSON.parse(virtuesJson);
@@ -10,9 +11,12 @@
 </script>
 
 <h1>{$activeVirtue.name}</h1>
-<Score />
-<Buttons />
-<History />
+<div class="container">
+  <Graph />
+  <Score />
+  <Buttons />
+  <History />
+</div>
 
 <style>
   h1 {
