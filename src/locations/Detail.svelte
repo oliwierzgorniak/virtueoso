@@ -14,8 +14,8 @@
 <div class="container">
   <Graph />
   <Score />
-  <Buttons />
   <History />
+  <Buttons />
 </div>
 
 <style>
