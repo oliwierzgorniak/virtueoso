@@ -1,6 +1,7 @@
 <script>
+  import { afterUpdate } from "svelte";
   import backSvg from "../../assets/back.svg";
-  import { isAddRecordOpen, location } from "../store";
+  import { activeVirtue, isAddRecordOpen, location } from "../store";
 
   function handleBackButton() {
     location.set("home");
@@ -9,6 +10,28 @@
   function handleReviewButton() {
     isAddRecordOpen.set(true);
   }
+
+  let wasDayReviewed = false;
+
+  function getWasDayReviewed() {
+    if ($activeVirtue.history.length) {
+      const lastRecord =
+        $activeVirtue.history[$activeVirtue.history.length - 1];
+      const lastRecordsDate = new Date(lastRecord.dateStr);
+      const todaysDate = new Date();
+
+      return (
+        lastRecordsDate.getDate() == todaysDate.getDate() &&
+        lastRecordsDate.getMonth() == todaysDate.getMonth() &&
+        lastRecordsDate.getFullYear() == todaysDate.getFullYear()
+      );
+    }
+  }
+  wasDayReviewed = getWasDayReviewed();
+
+  afterUpdate(() => {
+    wasDayReviewed = getWasDayReviewed();
+  });
 </script>
 
 <section>
@@ -18,7 +41,9 @@
       <span>Go back</span></button
     >
   </nav>
-  <button on:click={handleReviewButton} class="button">Review the day</button>
+  {#if !wasDayReviewed}
+    <button on:click={handleReviewButton} class="button">Review the day</button>
+  {/if}
 </section>
 
 <style>

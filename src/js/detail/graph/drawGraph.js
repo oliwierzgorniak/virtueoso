@@ -10,7 +10,7 @@ export default function drawGraph(canvas, virtue) {
   let y = canvas.height * 0.5;
   console.log("refresh");
   records.forEach((record, i) => {
-    y -= record.rating * 2.5;
+    y -= record.rating * 2;
     ctx.lineTo((canvas.width / RECORDS_DISPLAYED) * (i + 1), y);
   });
   ctx.stroke();

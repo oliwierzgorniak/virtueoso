@@ -2,7 +2,7 @@
   import closeSvg from "../../assets/close.svg";
   import { activeVirtue, isAddRecordOpen } from "../store";
   // import getNewVirtueObject from "../home/addForm/getNewVirtueObject";
-  let rating;
+  let rating = "-2";
 
   function handleAddButton() {
     const id = $activeVirtue.id;
@@ -16,8 +16,10 @@
           rating: +rating,
         };
         virtue.history.push(newRecord);
+        virtue.points += +rating;
 
         activeVirtue.set(virtue);
+        console.log($activeVirtue);
       }
 
       return virtue;

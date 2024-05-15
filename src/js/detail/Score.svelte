@@ -1,13 +1,11 @@
 <script>
   import { activeVirtue } from "../store";
   import getFeedback from "../detail/score/getFeedback";
-
-  let feedback = getFeedback($activeVirtue.points);
 </script>
 
 <section class="container">
   <span><span class="points">{$activeVirtue.points}</span> virtue points</span>
-  <span class="feedback">{feedback}</span>
+  <span class="feedback">{getFeedback($activeVirtue.points)}</span>
 </section>
 
 <style>
