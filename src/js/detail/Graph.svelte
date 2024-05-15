@@ -16,7 +16,7 @@
   canvas {
     border: var(--border-size) solid var(--text-color);
     width: 100%;
-    margin-bottom: 2.6em;
+    margin-bottom: 1.5em;
     aspect-ratio: 3/2;
   }
 </style>

@@ -1,7 +1,6 @@
 <script>
   import { activeVirtue } from "../store";
   import getFormattedDate from "../detail/history/getFormattedDate";
-  import getPointsValue from "../detail/history/getPointsValue";
   import getWordValue from "../detail/history/getPointsValue";
 
   const MAX_RECORDS = 5;
@@ -23,10 +22,11 @@
     {#each getRecords(showMore) as record}
       <li>
         <span>{getFormattedDate(record.dateStr)}</span>
-        <div>
-          <span>{getWordValue(record.rating)}</span><span
-            ><span class="rating-points">{record.rating}</span>vp</span
-          >
+        <div class="rating-container">
+          <span>{getWordValue(record.rating)}</span>
+          <div class="points-container">
+            <span class="rating-points">{record.rating}</span><span>vp</span>
+          </div>
         </div>
       </li>
     {/each}
@@ -38,10 +38,7 @@
 
 <style>
   h2 {
-    margin-bottom: 0.5em;
-  }
-
-  section {
+    margin-bottom: 0.35em;
   }
 
   li {
@@ -51,9 +48,18 @@
     padding: 0.7em 0;
   }
 
+  .rating-container {
+    display: flex;
+    gap: 0.5em;
+  }
+
   .rating-points {
-    margin-left: 1.5em;
     margin-right: 0.1em;
+  }
+
+  .points-container {
+    width: 5.6ch;
+    text-align: right;
   }
 
   button {
